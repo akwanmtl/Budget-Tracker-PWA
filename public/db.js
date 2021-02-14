@@ -1,17 +1,19 @@
 let db;
 const request = indexedDB.open("budget", 1);
 
-request.onupgradeneeded = function(event) {
+request.onupgradeneeded = (event)=>{
   const db = event.target.result;
   db.createObjectStore("pending", { autoIncrement: true });
 }
 
-request.onsuccess = function(event) {
+request.onsuccess = (event)=>{
   db = event.target.result;
-  if(navigator.onLine) checkDatabase();
+  if(navigator.onLine) {
+    checkDatabase();
+  }
 }
 
-request.onerror = function (event) {
+request.onerror = (event)=>{
   console.log('Found error: ' + event.target.errorCode);
 }
 
@@ -41,6 +43,7 @@ const checkDatabase = ()=>{
         const transaction = db.transaction(["pending"], "readwrite");
         const pendingStore = transaction.objectStore("pending");
         pendingStore.clear();
+        location.reload();
       });
     }
   }
