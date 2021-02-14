@@ -1,18 +1,17 @@
 let db;
-
 const request = indexedDB.open("budget", 1);
 
-request.onupgradedneeded = (event)=>{
-  db = event.target.result;
-  db.createObjectStore("pending", {autoIncrement: true});
+request.onupgradedneeded = function(event) {
+  const db = event.target.result;
+  db.createObjectStore("pending", { autoIncrement: true });
 }
 
-request.onsuccess = (event)=>{
+request.onsuccess = function(event) {
   db = event.target.result;
   if(navigator.onLine) checkDatabase();
 }
 
-request.onerror = (event)=>{
+request.onerror = function (event) {
   console.log('Found error: ' + event.target.errorCode);
 }
 
