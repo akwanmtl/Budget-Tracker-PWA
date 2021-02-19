@@ -60,8 +60,10 @@ self.addEventListener("fetch", (evt) => {
   }
 
   evt.respondWith(
-    caches.match(evt.request).then((response)=> {
-      return response || fetch(evt.request);
+    caches.open(CACHE_NAME).then(cache => {
+      return cache.match(evt.request).then(response => {
+        return response || fetch(evt.request);
+      });
     })
   );
 });
