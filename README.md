@@ -4,7 +4,7 @@
 The Budget Tracker application allows users to enter and keep track of their budget online and offline. Provided with the frontend and backend code that works online only, the task at hand was to add the code to make the application PWA. This was done using IndexedDB, Web app manifest, and service worker. This application is deployed on Heroku using MongoAtlas as the online database.
 
 * Link to the app on Heroku: https://fathomless-ocean-57959.herokuapp.com/
-* Link to the Github repository: https://github.com/akwanmtl/Budget-Tracket-PWA
+* Link to the Github repository: https://github.com/akwanmtl/Budget-Tracker-PWA
 
 
 ## Table of Contents
@@ -30,7 +30,6 @@ And here is a screenshot of the application run on a mobile device:
 <br>
 <img src="./assets/Screenshot_phone.jpg" width="300">
 
-When the netowkr
 
 ## Credits
 
